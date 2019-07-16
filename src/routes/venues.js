@@ -3,8 +3,9 @@ var Venue = require("../models/venue");
 module.exports = function (app) {
   // [HTTP METHOD] endpoint | what it does
   // [GET] /api.venues | Get all venues
-  app.get("/api/venues", function (req, res) {
-    Venue.find({}).then(function (venues) {
+  app.get("/api/venues/:userId", function (req, res) {
+    const { userId } = req.params;
+    Venue.find({ userId }).then(function (venues) {
       res.json(venues);
     });
   });

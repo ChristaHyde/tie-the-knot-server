@@ -1,8 +1,14 @@
 const mongoose = require('mongoose')
 
 const venueSchema = new mongoose.Schema({
+  venueId: {
+    type: String
+  },
   name: {
-    type: String,
+    type: String
+  },
+  userId: {
+    type: String
   },
   lat: {
     type: String
