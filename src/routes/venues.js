@@ -16,10 +16,11 @@ module.exports = function (app) {
     });
   });
 
-  // // Delete an example by id
-  // app.delete("/api/examples/:id", function (req, res) {
-  //   db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
-  //     res.json(dbExample);
-  //   });
-  // });
+  // Delete an example by id
+  app.delete("/api/venues/:id", function (req, res) {
+    console.log('id', req.params.id)
+    Venue.deleteOne({ where: { id: ObjectId(req.params.id) } }).then(function (venue) {
+      res.json(venue);
+    });
+  });
 };
