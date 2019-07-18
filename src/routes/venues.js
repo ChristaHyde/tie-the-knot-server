@@ -17,6 +17,20 @@ module.exports = function (app) {
     });
   });
 
+
+  // Update a new venue
+  app.put("/api/venues/:id", async function (req, res) {
+    const { id } = req.params;
+    const selector = { _id: id };
+    const upd = {
+      $set: req.body
+    };
+    console.log('update venue', JSON.stringify(selector), JSON.stringify(upd));
+    const result = await Venue.updateOne(selector, upd);
+    res.json({ result });
+  });
+
+
   // Delete an example by id
   app.delete("/api/venues/:id", function (req, res) {
     console.log('id', req.params.id)

@@ -18,6 +18,9 @@ const venueSchema = new mongoose.Schema({
   },
   description: {
     type: String
+  },
+  checked: {
+    type: Boolean
   }
 });
 
